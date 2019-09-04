@@ -19,7 +19,7 @@ public class SmartShopApplication {
 	}
 	
 	@RequestMapping("/item")
-	public Item[] item() {
+	public List<Item> item() {
 		return ItemFactory.getAllItem();
 	}
 
@@ -27,6 +27,16 @@ public class SmartShopApplication {
     public List<Item> typeItem(@PathVariable int size){
 	    return ItemFactory.TypeOfProduct(size);
     }
+	@PostMapping("/addItem")
+	List<Item> addItem(
+				@RequestParam(value="size", defaultValue="42") int size
+				,@RequestParam(value="productBrand", defaultValue="World") String productBrand
+				,@RequestParam(value="productName", defaultValue="World") String productName
+				,@RequestParam(value="screenType", defaultValue="World") String screenType
+				,@RequestParam(value="price", defaultValue="899.99") double price
+				,@RequestParam(value="stock", defaultValue="10") int stock){
+		return ItemFactory.addItem(size, productBrand, productName, screenType, price, stock);
+	}
 	public static void main(String[] args) {
 		SpringApplication.run(SmartShopApplication.class, args);
 	}
