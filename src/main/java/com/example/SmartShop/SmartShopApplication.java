@@ -15,7 +15,10 @@ public class SmartShopApplication {
 	private final AtomicLong counter = new AtomicLong();
 	@RequestMapping("/")
 	String home() {
-		return "Hello World!";
+		return "TV SHOP \n" +
+				"/item for all item \n" +
+				"/item/{size} for search size of tv Ex.42 45 49 52 \n" +
+				"/additem for add item (method POST)";
 	}
 	
 	@RequestMapping("/item")
