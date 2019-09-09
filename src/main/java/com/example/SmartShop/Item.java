@@ -74,10 +74,9 @@ public class Item{
         this.price = price;
         this.stock = stock;
     }
-    //    public abstract String getItem();
     
 }
-//
+
 class TV42 extends Item{
     public TV42(int id, int size,String productBrand, String productName,String screenType, double price, int stock) {
         super(id, size,productBrand, productName, screenType, price, stock);

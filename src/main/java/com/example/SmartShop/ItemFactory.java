@@ -46,10 +46,6 @@ public class ItemFactory {
             return new TV49(id, size,productBrand, productName, screenType, price, stock);
         else if(size == 52)
             return new TV52(id, size,productBrand, productName, screenType, price, stock);
-//        else if(type.equals("3"))
-//            return new Item3();
-//        else if(type.equals("4"))
-//            return new Item4();
         else
             return null;
     }
