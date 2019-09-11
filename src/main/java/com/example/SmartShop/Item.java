@@ -1,6 +1,8 @@
 package com.example.SmartShop;
 
-public class Item{
+import java.io.Serializable;
+
+public class Item implements Serializable {
     private int id;
     private int size;
     private String productBrand;
