@@ -5,9 +5,9 @@ import java.util.List;
 public class ItemFactory {
 
     public static List<Item> CreateProduct = new ArrayList<Item>();
-    public static FileSingleton file = FileSingleton.getInstance();
+    public static FileSingleton file;
     static {
-            FileSingleton file = FileSingleton.getInstance();
+            file = FileSingleton.getInstance();
             CreateProduct = file.LoadFile();
     };
 

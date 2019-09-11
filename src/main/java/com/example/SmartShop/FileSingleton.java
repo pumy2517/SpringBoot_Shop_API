@@ -4,10 +4,12 @@ import java.util.List;
 
 public class FileSingleton {
     private static FileSingleton singel_instance = null;
+    private static File file;
 
     private FileSingleton(){
-        File file = new File("listItem.txt");
+        this.file = new File("listItem.txt");
         if (!file.exists()){
+            System.out.println("CHECKCHECK");
             ItemFactory.CreateProduct.add(ItemFactory.createItem(1,42,"LG","LG8042X", "LED",999.99, 10));
             ItemFactory.CreateProduct.add(ItemFactory.createItem(2,45,"SAMSUNG","S80X45", "OLED",999.99, 5));
             ItemFactory.CreateProduct.add(ItemFactory.createItem(3,49,"MI","5400KL", "LED",599.99, 2));
@@ -33,7 +35,8 @@ public class FileSingleton {
 
     public static List<Item> LoadFile(){
         try {
-            FileInputStream fileInput = new FileInputStream("listItem.txt");
+
+            FileInputStream fileInput = new FileInputStream(file);
             ObjectInputStream objectInput = new ObjectInputStream(fileInput);
             List<Item> list = (List<Item>) objectInput.readObject();
             objectInput.close();
@@ -50,7 +53,7 @@ public class FileSingleton {
 
     public static void SaveFile(List<Item> list){
         try {
-            FileOutputStream fileOutput = new FileOutputStream("listItem.txt");
+            FileOutputStream fileOutput = new FileOutputStream(file);
             ObjectOutputStream objectOutput = new ObjectOutputStream(fileOutput);
             objectOutput.writeObject(list);
             objectOutput.close();
